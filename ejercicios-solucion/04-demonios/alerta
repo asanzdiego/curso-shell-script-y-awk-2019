@@ -1,0 +1,58 @@
+#! /bin/bash
+
+set -o errexit  # the script ends if a command fails
+set -o pipefail # the script ends if a command fails in a pipe
+set -o nounset  # the script ends if it uses an undeclared variable
+
+# script que escribe la fecha en formato 'dd/mm/aaaa hh:mm:ss' cada X segundos
+# en el log '~/alerta.log'
+
+# función de ayuda
+function ayuda() {
+cat << DESCRIPCION_AYUDA
+SYNOPIS
+    $0 [SEGUNDOS]
+
+DESCRIPCION
+    Escribe la fecha cada X segundos en el log '~/alerta.log'
+
+CODIGOS DE RETORNO
+    0 Si no hay ningún error
+DESCRIPCION_AYUDA
+}
+
+DEFAULT=2
+SEGUNDOS=$DEFAULT
+
+if [ "$#" -gt 0 ]; then
+
+    # si primer parámetro == '-h' o == '--help'
+    if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+        ayuda
+        exit 0
+    fi
+
+    SEGUNDOS=$1
+fi
+
+
+function main() {
+
+    # comprobar que SEGUNDOS es un número
+    if [ "$SEGUNDOS" != "0" ] && [ "$(echo "$SEGUNDOS" | awk '{ print $1 * 1 }')" != "$SEGUNDOS" ]; then
+        echo "El parámetro '$1' no es un número. Se cogerá el valor por defecto ($DEFAULT)"
+        SEGUNDOS=$DEFAULT
+    fi
+
+    # reinicio alerta.log
+    echo "" > ~/alerta.log
+
+    while true; do
+        date +%d/%m/%Y" "%H:%M:%S >> ~/alerta.log
+        sleep $SEGUNDOS
+    done
+}
+
+echo "$$"
+
+main "$@"
