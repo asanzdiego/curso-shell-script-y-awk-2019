@@ -40,7 +40,7 @@ PRIMERO=1
 # iteramos sobre los parámetros
 for i in "$@"; do
 
-    if [ "$(who | grep -E "^$i .+$" || echo "NO")" == "NO" ]; then
+    if [ "$(who | grep -E "^$i .+$")" == "" ]; then
         echo "El usuario '$i' no está conectado"
         ayuda
         exit 2
