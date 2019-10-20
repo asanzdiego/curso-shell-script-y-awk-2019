@@ -39,22 +39,22 @@ error() {
   printf "\033[0;31m%s\033[0m\n" "$1"
 }
 warning() {
-  if [[ $logLevel -gt 0 ]]; then
+  if [ $logLevel -gt 0 ]; then
     printf "\033[1;33m%s\033[0m\n" "$1"
   fi
 }
 success() {
-  if [[ $logLevel -gt 1 ]]; then
+  if [ $logLevel -gt 1 ]; then
     printf "\033[0;32m%s\033[0m\n" "$1"
   fi
 }
 info() {
-  if [[ $logLevel -gt 2 ]]; then
+  if [ $logLevel -gt 2 ]; then
     printf "\033[0;34m%s\033[0m\n" "$1"
   fi
 }
 debug() {
-  if [[ $logLevel -gt 3 ]]; then
+  if [ $logLevel -gt 3 ]; then
     printf "\033[1;30m%s\033[0m\n" "$1"
   fi
 }

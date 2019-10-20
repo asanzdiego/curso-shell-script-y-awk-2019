@@ -18,7 +18,7 @@ EXPONENTE="$2"
 # para cada parámetro introducido
 for ((CONTADOR=0; CONTADOR<"$EXPONENTE"; CONTADOR++)); do
 
-  ELEVADO=$(echo "$ELEVADO" "$BASE" | awk '{ print $1*$2 }')
+    ELEVADO=$(echo "$ELEVADO" "$BASE" | awk '{ print $1*$2 }')
 
 done
 

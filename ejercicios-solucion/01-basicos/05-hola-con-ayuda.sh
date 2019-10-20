@@ -17,20 +17,19 @@ SYNOPSIS
     $0 NOMBRE_1 [NOMBRE_2] ... [NOMBRE_N]
 
 DESCRIPCION
-   Muestra "Hola NOMBRE_1, NOMBRE_2, ... NOMBRE_N!" por pantalla.
+    Muestra "Hola NOMBRE_1, NOMBRE_2, ... NOMBRE_N!" por pantalla.
 
 CÓDIGOS DE RETORNO
     1 Si el número de parámetros es menor que 1
-
 DESCRPCION_AYUDA
 
 }
 
 # si número de parámetros <= 0
 if test $# -le 0 ; then
-  echo "Hay que introducir al menos un parámetro."
-  ayuda
-  exit 1
+    echo "Hay que introducir al menos un parámetro."
+    ayuda
+    exit 1
 fi
 
 MENSAJE="Hola"

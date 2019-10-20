@@ -174,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">./01_hello_world.sh</span></code></pre></div>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/01_hello_word.sh">examples/01_hello_word.sh</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/01_hello_word.sh">examples/01_hello_word.sh</a></p>
 </section><section id="nombres" class="slide level2">
 <h2>Nombres</h2>
 <ul>
@@ -261,15 +261,15 @@ param_<span class="dv">2</span><span class="op">=</span>$<span class="kw">{</spa
 num_params<span class="op">=</span>$<span class="co">#              # the numbers of script params</span>
 all_params<span class="op">=</span>($@)            <span class="co"># all params assigned as an array</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">./02_parameters.sh</span> param_1 param_2 ... param_N</code></pre></div>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/02_parameters.sh">examples/02_parameters.sh</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/02_parameters.sh">examples/02_parameters.sh</a></p>
 </section><section id="template" class="slide level2">
 <h2>Template</h2>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/template.sh"> <img style="width:70%" src="../img/template.png" alt="Plantilla de Bash Shell Script"/> </a></p>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/template.sh">Plantilla de Bash Shell Script</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/template.sh"> <img style="width:70%" src="../img/template.png" alt="Plantilla de Bash Shell Script"/> </a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/template.sh">Plantilla de Bash Shell Script</a></p>
 </section><section id="chuleta" class="slide level2">
 <h2>Chuleta</h2>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/chuleta-shell-script.pdf"> <img style="width:100%" src="../img/chuleta-shell-script.png" alt="Cheleta de Bash Shell Script"/> </a></p>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/chuleta-shell-script.pdf">Chuleta de Bash Shell Script</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/chuleta-shell-script.pdf"> <img style="width:100%" src="../img/chuleta-shell-script.png" alt="Cheleta de Bash Shell Script"/> </a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/chuleta-shell-script.pdf">Chuleta de Bash Shell Script</a></p>
 </section><section id="shellcheck" class="slide level2">
 <h2>ShellCheck</h2>
 <p><a href="https://github.com/koalaman/shellcheck"> <img style="width:70%" src="../img/shellcheck-a-shell-script-static-analysis-tool-bis.png" alt="ShellCheck, el lint de Bash Shell Script"/> </a></p>
@@ -305,7 +305,7 @@ all_params<span class="op">=</span>($@)            <span class="co"># all params
 Fulanito    <span class="fl">4.2</span>  <span class="fl">6.5</span>  <span class="fl">8.8</span>
 Menganito   <span class="fl">5.6</span>  <span class="fl">5.0</span>  <span class="fl">5.3</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">awk</span> <span class="st">&#39;{ print $1&quot;=&quot;($2+$3+$4)/3 }&#39;</span> 03_grades.csv</code></pre></div>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/04_grades.sh">examples/04_grades.sh</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/04_grades.sh">examples/04_grades.sh</a></p>
 </section><section id="roles" class="slide level2">
 <h2>Roles</h2>
 <ul>
@@ -328,7 +328,7 @@ Menganito<span class="op">:</span>Operario<span class="op">,</span>Sistemas<span
   <span class="bu">echo</span> -n <span class="st">&quot;</span><span class="va">${rol}</span><span class="st"> -&gt; &quot;</span>
   <span class="bu">echo</span> <span class="va">$(</span><span class="fu">grep</span> -E <span class="st">&quot;</span><span class="va">${rol}</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${roles_file}</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">cut</span> -d : -f 1<span class="va">)</span>
 <span class="kw">done</span></code></pre></div>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/06_roles_sin_awk.sh">examples/06_roles_sin_awk.sh</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/06_roles_sin_awk.sh">examples/06_roles_sin_awk.sh</a></p>
 </section><section id="con-awk" class="slide level2">
 <h2>Con awk</h2>
 <div class="sourceCode"><pre class="sourceCode awk"><code class="sourceCode awk"><span class="co"># this will run only once at first</span>
@@ -346,7 +346,7 @@ Menganito<span class="op">:</span>Operario<span class="op">,</span>Sistemas<span
     <span class="kw">print</span> rol<span class="st">&quot; -&gt; &quot;</span> roles[rol]
   <span class="kw">}</span>
 <span class="kw">}</span></code></pre></div>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/08_roles.awk">examples/08_roles.awk</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/08_roles.awk">examples/08_roles.awk</a></p>
 </section><section id="tutorial-1" class="slide level2">
 <h2>Tutorial</h2>
 <p><a href="http://www.grymoire.com/Unix/Awk.html"> <img style="width:70%" src="../img/awk-a-tutorial-and-introduction-by-bruce-barnett.png" alt="Tutorial de AWK"/> </a></p>
@@ -357,7 +357,7 @@ Menganito<span class="op">:</span>Operario<span class="op">,</span>Sistemas<span
 <p><a href="http://creativecommons.org/licenses/by-sa/3.0/es/">Creative Commons Reconocimiento-CompartirIgual 3.0</a></p>
 </section><section id="fuentes" class="slide level2">
 <h2>Fuentes</h2>
-<p><a href="https://github.com/asanzdiego/curso-shell-script-2019/">github.com/asanzdiego/curso-shell-script-2019/</a></p>
+<p><a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/">github.com/asanzdiego/curso-shell-script-y-awk-2019/</a></p>
 </section><section id="slides" class="slide level2">
 <h2>Slides</h2>
 <p>Las slides están hechas con <strong><a href="https://github.com/markdownslides/markdownslides">MarkdownSlides</a></strong>.</p>

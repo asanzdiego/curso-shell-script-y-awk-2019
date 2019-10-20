@@ -6,11 +6,8 @@ BEGIN {
 # esto se ejecutará para cada una de las líneas del fichero
 {
     nombre=$1
-
     for (N=2; N<=NF; N++) {
-
         rol=$N
-
         roles[rol]=""roles[rol]" "nombre
     }
 }
@@ -18,7 +15,6 @@ BEGIN {
 # esto se ejecutará solo una vez al final
 END {
     for ( rol in roles) {
-        print rol
-        print " ->" roles[rol]
+        print rol " ->" roles[rol]
     }
 }

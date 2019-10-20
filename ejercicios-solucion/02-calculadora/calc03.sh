@@ -25,16 +25,16 @@ DESCRIPCION_AYUDA
 }
 
 # función de error
-#    $1 línea de error
-#    $2 mensaje de error
-#    $3 código de retorno 
+#   $1 línea de error
+#   $2 mensaje de error
+#   $3 código de retorno 
 function error() {
     echo "$0: línea $1: Error $3: $2"
     exit "$3"
 }
 
 # si número de parámetros distinto 1
-if [ $# -ne 1 ] ; then
+if [ $# -ne 1 ]; then
     error $LINENO "Hay que introducir 1 y solamente 1 parámetro." 1
 fi
 

@@ -64,7 +64,7 @@ $ chmod +x 01_hello_world.sh
 $ ./01_hello_world.sh
 ~~~
 
-[examples/01_hello_word.sh](https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/01_hello_word.sh)
+[examples/01_hello_word.sh](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/01_hello_word.sh)
 
 ## Nombres
 
@@ -103,7 +103,7 @@ set -o nounset  # the script ends if it uses an undeclared variable
 
 num_params=$#
 
-if [[ $num_params -lt 1 ]]; then
+if [ $num_params -lt 1 ]; then
     echo "At least one parameter must be introduced."
     exit 1 # error and exits with a return code > 0
 fi
@@ -158,7 +158,7 @@ main "$@" # call the main function with all the parameters
 
 ~~~{.awk}
 # Default values
-default_2="Commit Conf"
+default_2="Mundo"
 
 param_1=$1                 # the first script param
 param_2=${2:-${default_2}} # the second script param (with default value)
@@ -170,23 +170,23 @@ all_params=($@)            # all params assigned as an array
 $ ./02_parameters.sh param_1 param_2 ... param_N
 ~~~
 
-[examples/02_parameters.sh](https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/02_parameters.sh)
+[examples/02_parameters.sh](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/02_parameters.sh)
 
 ## Template
 
-<a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/template.sh">
+<a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/template.sh">
   <img style="width:70%" src="../img/template.png" alt="Plantilla de Bash Shell Script"/>
 </a>
 
-[Plantilla de Bash Shell Script](https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/template.sh)
+[Plantilla de Bash Shell Script](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/template.sh)
 
 ## Chuleta
 
-<a href="https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/chuleta-shell-script.pdf">
+<a href="https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/chuleta-shell-script.pdf">
   <img style="width:100%" src="../img/chuleta-shell-script.png" alt="Cheleta de Bash Shell Script"/>
 </a>
 
-[Chuleta de Bash Shell Script](https://github.com/asanzdiego/curso-shell-script-2019/blob/master/recursos/chuleta-shell-script.pdf)
+[Chuleta de Bash Shell Script](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/recursos/chuleta-shell-script.pdf)
 
 ## ShellCheck
 
@@ -252,7 +252,7 @@ Menganito   5.6  5.0  5.3
 awk '{ print $1"="($2+$3+$4)/3 }' 03_grades.csv
 ~~~
 
-[examples/04_grades.sh](https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/04_grades.sh)
+[examples/04_grades.sh](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/04_grades.sh)
 
 ## Roles
 
@@ -284,7 +284,7 @@ for rol in $roles; do
 done
 ~~~
 
-[examples/06_roles_sin_awk.sh](https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/06_roles_sin_awk.sh)
+[examples/06_roles_sin_awk.sh](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/06_roles_sin_awk.sh)
 
 ## Con awk
 
@@ -306,7 +306,7 @@ END {
 }
 ~~~
 
-[examples/08_roles.awk](https://github.com/asanzdiego/curso-shell-script-2019/blob/master/ejemplos/08_roles.awk)
+[examples/08_roles.awk](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/blob/master/ejemplos/08_roles.awk)
 
 ## Tutorial
 
@@ -330,7 +330,7 @@ END {
 
 ## Fuentes
 
-[github.com/asanzdiego/curso-shell-script-2019/](https://github.com/asanzdiego/curso-shell-script-2019/)
+[github.com/asanzdiego/curso-shell-script-y-awk-2019/](https://github.com/asanzdiego/curso-shell-script-y-awk-2019/)
 
 ## Slides
 

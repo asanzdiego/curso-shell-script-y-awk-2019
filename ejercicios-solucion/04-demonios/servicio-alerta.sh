@@ -7,7 +7,7 @@ set -o nounset  # the script ends if it uses an undeclared variable
 # script que arraca, para, relanza y nos muestra el estado de 'alerta'
 
 # función de ayuda
-function ayuda() {
+function do_help() {
 cat << DESCRIPCION_AYUDA
 SYNOPIS
     $0 start|stop|restart|status
@@ -68,21 +68,15 @@ function do_status() {
 # si número de parámetros distinto 3
 if [ $# -ne 1 ]; then
     echo "El número de parámetros debe de ser igual a 1"
-    ayuda
+    do_help
     exit 1
 fi
 
 case $1 in
-    -h|--help)
-        ayuda ;;
-    start)
-      do_start ;;
-    stop)
-      do_stop ;;
-    restart)
-      do_restart ;;
-    status)
-      do_status ;;
-    *)
-      echo "Parámetro '$1' incorrecto." ;;
+    -h|--help)  do_help ;;
+    start)      do_start ;;
+    stop)       do_stop ;;
+    restart)    do_restart ;;
+    status)     do_status ;;
+    *)          echo "Parámetro '$1' incorrecto." ;;
 esac
