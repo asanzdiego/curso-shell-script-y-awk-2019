@@ -40,7 +40,7 @@ PRIMERO=1
 # iteramos sobre los parámetros
 for i in "$@"; do
 
-    if [ "$(./usuarioconectado "$i")" == "NO" ]; then
+    if [ "$(usuarioconectado "$i")" == "NO" ]; then
         echo "El usuario '$i' no está conectado"
         ayuda
         exit 2

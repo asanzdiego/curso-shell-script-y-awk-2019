@@ -40,7 +40,7 @@ PRIMERO=1
 # iteramos sobre los parámetros
 for i in "$@"; do
 
-    if [ "$(./usuariosistema "$i")" == "NO" ]; then
+    if [ "$(usuariosistema "$i")" == "NO" ]; then
         echo "El usuario '$i' no está en el sistema"
         ayuda
         exit 2

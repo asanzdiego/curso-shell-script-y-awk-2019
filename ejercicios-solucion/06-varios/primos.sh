@@ -3,23 +3,22 @@
 set -o errexit  # the script ends if a command fails
 set -o pipefail # the script ends if a command fails in a pipe
 set -o nounset  # the script ends if it uses an undeclared variable
-
-# script que divide dos números
+# set -o xtrace # if you want to debug
 
 # función de ayuda
 function ayuda() {
 
-cat << DESCRPCION_AYUDA
+cat << DESCRIPCION_AYUDA
 SYNOPSIS
     $0 NUMERO_1 NUMERO_2
 
-DESCRIPCION
-    Retorna la división de NUMERO_1 y NUMERO_2
+DESCRIPCIÓN
+    Retorna los primos entre NUMERO_1 y NUMERO_2
 
 CÓDIGOS DE RETORNO
-    1 Si el número de parámetros es distinto de 2
-    2 Si algún parámetro no es un número
-DESCRPCION_AYUDA
+    1 Si el número de parámetros es distinto de 2.
+    2 Si algún parámetro no es un número.
+DESCRIPCION_AYUDA
 
 }
 
@@ -44,4 +43,16 @@ fi
 comprobarQueNoEsNumero "$1"
 comprobarQueNoEsNumero "$2"
 
-echo "$1" "$2" | awk '{ print $1 / $2 }'
+if [ "$1" -gt "$2" ]; then
+  INCIO="$2"
+  FIN="$1"
+else
+  INCIO="$1"
+  FIN="$2"
+fi
+
+for ((INDICE="$INCIO"; "$INDICE" <= "$FIN"; INDICE++ )); do
+  if [ "$(factor "$INDICE")" == "$INDICE: $INDICE" ]; then
+    echo "$INDICE"
+  fi
+done

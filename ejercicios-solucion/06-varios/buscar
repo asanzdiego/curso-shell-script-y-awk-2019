@@ -1,0 +1,89 @@
+#! /bin/bash
+
+set -o errexit  # the script ends if a command fails
+set -o pipefail # the script ends if a command fails in a pipe
+set -o nounset  # the script ends if it uses an undeclared variable
+
+# se puede de hacer de forma recursiva o con el comando 'du'
+function buscarEnDirectorioRecursiva() {
+
+  local DIRECTORIO="$1"
+  local BUSQUEDA="$2"
+
+  #pwd
+  cd "$DIRECTORIO"
+
+  for FICHERO in *; do
+    #echo "FICHERO=$FICHERO"
+    if [ -d "$FICHERO" ]; then
+      buscarEnDirectorioRecursiva "$FICHERO" "$BUSQUEDA"
+    else
+      if [ "$FICHERO" == "$BUSQUEDA" ]; then
+         echo "$(pwd)"/"$FICHERO"
+      fi
+    fi
+  done
+
+  cd ..
+}
+
+# si nos pasan un parámetro
+if [ "$#" == 1 ]; then
+
+  FICHERO_BUSCAR=$1
+  for FICHERO in *; do
+    if [ "$FICHERO" == "$FICHERO_BUSCAR" ]; then
+       echo "$FICHERO"
+    fi
+  done
+  exit 0
+fi
+
+# si nos pasan 2 parámetros
+if [ "$#" == 2 ]; then
+
+  OPCION=$1
+  FICHERO_BUSCAR=$2
+
+  if [ "$OPCION" == "-s" ]; then
+    
+    #buscarEnDirectorioRecursiva . $2
+    du -a | cut -f 2 | grep -E "^.*/$FICHERO_BUSCAR$"
+  
+  else
+
+    DIRECTORIO=$1
+    for FICHERO in $DIRECTORIO/*; do
+      if [ "$FICHERO" == "$DIRECTORIO/$FICHERO_BUSCAR" ]; then
+         echo "$FICHERO"
+      fi
+    done
+  fi
+
+  exit 0
+fi
+
+# si nos pasan 3 parámetros
+if [ "$#" == 3 ]; then
+
+  OPCION=$1
+  DIRECTORIO=$2
+  FICHERO_BUSCAR=$3
+
+  if [ "$OPCION" != "-s" ]; then
+    echo "Opción incorrecta"
+    exit 1
+  fi
+
+  if [ ! -d "$DIRECTORIO" ]; then
+    echo "$DIRECTORIO no es un directorio"
+    exit 2
+  fi
+
+  du -a "$DIRECTORIO" | cut -f 2 | grep -E "^.*/$3$"
+
+  exit 0
+fi
+
+echo "Número de parámetros erroneos"
+exit 3

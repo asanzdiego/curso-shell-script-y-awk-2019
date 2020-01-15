@@ -36,7 +36,7 @@ function comprobarQueNoEsNumero() {
 
     if [ -n "$1" ] \
         && [ "$1" != "0" ] \
-        && [ "$(echo "$1" | awk '{ print $1*1 }')" != "$1" ]; then
+        && [ "$(echo "$1*1" | bc -l)" != "$1" ]; then
 
         echo "El parámetro '$1' no es un número"
         ayuda
@@ -44,7 +44,6 @@ function comprobarQueNoEsNumero() {
     fi
 }
 
-# si número de parámetros distinto 3
 if [ $# -ne 3 ]; then
     echo "El número de parámetros debe de ser igual a 3"
     ayuda
@@ -55,9 +54,9 @@ comprobarQueNoEsNumero "$1"
 comprobarQueNoEsNumero "$3"
 
 case $2 in
-    +|sum|mas)   ./suma       "$1" "$3" ;;
-    -|res|menos) ./resta      "$1" "$3" ;;
-    x|mul|por)   ./multiplica "$1" "$3" ;;
-    /|div|entre) ./division   "$1" "$3" ;;
+    +|sum|mas)   echo "$1+$3" | bc -l ;;
+    -|res|menos) echo "$1-$3" | bc -l ;;
+    x|mul|por)   echo "$1*$3" | bc -l ;;
+    /|div|entre) echo "$1/$3" | bc -l ;;
     *) echo "La operación '$2' es inválida." ; ayuda ; exit 3 ;;
 esac

@@ -1,0 +1,14 @@
+#! /bin/bash
+
+set -o errexit  # the script ends if a command fails
+set -o pipefail # the script ends if a command fails in a pipe
+set -o nounset  # the script ends if it uses an undeclared variable
+
+# si el número de parámetros es distinto de 2
+if [ $# -ne 2 ]; then
+    echo "Para ejecutar este script se necesitan 2 números."
+    exit 2
+fi
+
+# en el enunciado pone que se debería de hacer con una iteracción así que así no estaría bien del todo
+echo "$1^$2" | bc -l
