@@ -60,6 +60,11 @@ function moverFicheros() {
     done
 }
 
-verificarNumeroParametros "$@"
-crearJaula
-moverFicheros "$@"
+funtion main() {
+
+    verificarNumeroParametros "$@"
+    crearJaula
+    moverFicheros "$@"
+}
+
+main "$@"

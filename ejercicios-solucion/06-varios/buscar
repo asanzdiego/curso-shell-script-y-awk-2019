@@ -31,6 +31,9 @@ function buscarEnDirectorioRecursiva() {
 if [ "$#" == 1 ]; then
 
   FICHERO_BUSCAR=$1
+  
+  #du -a | cut -f 2 | grep -E "^./$FICHERO_BUSCAR"
+  
   for FICHERO in *; do
     if [ "$FICHERO" == "$FICHERO_BUSCAR" ]; then
        echo "$FICHERO"
@@ -53,6 +56,9 @@ if [ "$#" == 2 ]; then
   else
 
     DIRECTORIO=$1
+
+    #du -a | cut -f 2 | grep -E "^.$1/$FICHERO_BUSCAR$"
+
     for FICHERO in $DIRECTORIO/*; do
       if [ "$FICHERO" == "$DIRECTORIO/$FICHERO_BUSCAR" ]; then
          echo "$FICHERO"
@@ -79,6 +85,8 @@ if [ "$#" == 3 ]; then
     echo "$DIRECTORIO no es un directorio"
     exit 2
   fi
+
+  #buscarEnDirectorioRecursiva "$DIRECTORIO" $3
 
   du -a "$DIRECTORIO" | cut -f 2 | grep -E "^.*/$3$"
 

@@ -19,6 +19,7 @@ EXPONENTE="$2"
 for ((CONTADOR=0; CONTADOR<"$EXPONENTE"; CONTADOR++)); do
 
     ELEVADO=$(echo "$ELEVADO" "$BASE" | awk '{ print $1*$2 }')
+    #ELEVADO=$(echo "$ELEVADO*$BASE" | bc -l)
 
 done
 

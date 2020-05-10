@@ -126,7 +126,7 @@ function solape_hora_inicial() {
     echo "{ if ( $HORA_INICIAL >= \$1 && $HORA_INICIAL < \$2 ) print \$0 }" > "$FICHERO_PROGRAMA_AWK"
 
     # ejecutamos el comando y guardamos el resultado en una variable
-    CITA_SOLAPADA=$(more "$CITAS_FILE" | awk -f "$FICHERO_PROGRAMA_AWK")
+    CITA_SOLAPADA=$(cat "$CITAS_FILE" | awk -f "$FICHERO_PROGRAMA_AWK")
 
     # si existe alguna cita que se solape
     if [ -n "$CITA_SOLAPADA" ]; then
@@ -315,7 +315,7 @@ function hour() {
 touch $CITAS_FILE
 
 # comprobamos que no haya habido ningún error inexperado
-error_inexperado
+error_inexperado $LINENO
 
 # recogemos la opción selecionada
 OPCION="$1"
@@ -326,10 +326,10 @@ shift
 # dependiendo de la opción seleccionada
 case $OPCION in
     -h|--help)        ayuda;;
-    -a|--add)        add "$@";;
-    -s|--search)    search "$@";;
+    -a|--add)         add "$@";;
+    -s|--search)      search "$@";;
     -i|--init)        init "$@";;
-    -e|--end)        end "$@";;
+    -e|--end)         end "$@";;
     -n|--name)        name "$@";;
     -o|--hour)        hour "$@";;
     *)                error $LINENO "Opción '$OPCION' inválida." 5;;

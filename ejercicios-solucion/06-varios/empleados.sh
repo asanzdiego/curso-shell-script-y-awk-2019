@@ -50,15 +50,14 @@ for i in $listaDNI; do
     milogin=$(echo "$nombre" | cut -c1).${apellido1}.${apellido2}
 
     # simulamos la creación del usuario
-    echo "useradd -c \"$nombre $apellido1 $apellido2\" -g g$grupo -s /bin/bash -e \"2017/$mes/$dia\" $milogin 2>> log_creacion.txt"
+    echo "useradd -c \"$nombre $apellido1 $apellido2\" \
+         -g g$grupo -s /bin/bash -e \"2017/$mes/$dia\" \
+         -p \"Op0s2016\" $milogin 2>> log_creacion.txt"
     if [ $? -eq 0 ]; then
         usuariosCreados=$((usuariosCreados + 1))
     else
         usuariosNoCreados=$((usuariosNoCreados + 1))
     fi
-
-    # simulamos la creación de la contraseña
-    echo "passwd $milogin Op0s2016"
 done
 
 echo "Número de departamentos/estados: $numGrupos"

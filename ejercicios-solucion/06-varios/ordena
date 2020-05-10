@@ -15,4 +15,4 @@ fi
 # muestra el listado ordenado de menor a mayor por el tamaño
 # sacando sólo el nombre del archivo y el número de línea
 # shellcheck disable=SC2012
-ls -l | sort -nk 5 | awk '{ print $8 }' | nl
+ls -l | sort -nk 5 | awk '{ print $9 }' | nl
